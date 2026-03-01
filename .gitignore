@@ -1,0 +1,44 @@
+# IDE
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+
+# Maven / Java
+target/
+*.class
+*.jar
+*.war
+*.ear
+.mvn/
+.classpath
+.project
+.settings/
+
+# Node.js
+node_modules/
+dist/
+build/
+.npm
+.eslintcache
+
+# Sensitive Configs (CRITICAL)
+**/application-dev.yml
+**/application-local.yml
+**/application-prod.yml
+.env
+.env.*
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Personal Docs
+Resume_*.md
+Resume_*.pdf
+*.docx

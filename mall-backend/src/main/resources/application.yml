@@ -1,0 +1,50 @@
+server:
+  port: 9090
+
+spring:
+  rabbitmq:
+    host: ${Yukio.mq.host}
+    port: 5672
+    username: ${Yukio.mq.username}
+    password: ${Yukio.mq.pw}
+    virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: auto
+  application:
+    name: mall-backend
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${Yukio.db.host}:${Yukio.db.port}/mall_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true&allowMultiQueries=true
+    username: ${Yukio.db.username}
+    password: ${Yukio.db.pw}  # 请修改为您本地的数据库密码
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 开发环境打印SQL
+  global-config:
+    db-config:
+      id-type: auto
+
+# SpringDoc & Knife4j Configuration
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.mall.controller
+
+knife4j:
+  enable: true
+  setting:
+    language: zh-CN
+
+
