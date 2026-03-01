@@ -834,3 +834,17 @@
   }
   ```
 
+---
+
+## 13. 系统运维与安全管理 (System Ops & Security)
+
+### 13.1 代码版本管理规范
+*   **Git 忽略策略**：系统严格禁止上传包含明文密钥、数据库密码的配置文件（如 `application-dev.yml`, `application-prod.yml`）。
+*   **环境隔离**：生产与开发环境配置通过 `${VAR_NAME}` 占位符注入，实际敏感值应保存在本地未追踪的 `-dev.yml` 或服务器环境变量中。
+*   **敏感文件清单**（已通过 `.gitignore` 排除）：
+    - 后端配置：`**/application-dev.yml`, `**/application-local.yml`
+    - 前端产物：`node_modules/`, `dist/`
+    - IDE 配置：`.idea/`, `.vscode/`, `*.iml`
+    - 个人隐私：所有个人简历 (`Resume_*.md`) 及 Office 文档 (`*.docx`)。
+
+
