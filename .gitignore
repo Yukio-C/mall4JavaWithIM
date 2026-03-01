@@ -34,11 +34,12 @@ build/
 *.log
 logs/
 
-# OS
-.DS_Store
-Thumbs.db
+# SQL Scripts
+sql/*.sql
+!sql/mall_system_init_all.sql
 
-# Personal Docs
-Resume_*.md
-Resume_*.pdf
-*.docx
+# Test Classes & Resources (CRITICAL)
+**/src/test/
+**/__tests__/
+**/*.spec.ts
+**/*.test.ts
